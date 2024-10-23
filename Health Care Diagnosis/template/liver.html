@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+	<title>liver_pred</title>
+    
+</head>
+	<style>
+     #welcome-heading {
+            text-align: center;
+            font-size: 27px;
+            color: #333333;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    #main-footer
+    {
+      color: #FFFFFF;
+      font-family: "Segoe UI";
+      background: #2B2B2B;
+      text-align: center;
+      margin-top: 50px;
+      padding: 16px;
+      bottom: 8px;
+    }</style>
+<body>
+    <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="/">Health Care App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/about">About</a>
+          <a class="nav-item nav-link" href="/cancer">Cancer</a>
+          <a class="nav-item nav-link" href="/diabetes">Diabetes</a>
+          <a class="nav-item nav-link" href="/heart">Heart</a>
+          <a class="nav-item nav-link" href="/liver">Liver</a>
+          <a class="nav-item nav-link" href="/kidney">Kidney</a>
+           <a class="nav-item nav-link" href="/Malaria">Malaria</a>
+           <a class="nav-item nav-link" href="/Pneumonia">Pneumonia</a>
+        </div>
+        <!-- Navbar Right Side 
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+        </div>-->
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container",class="form-group">
+        <h2>Liver Diagnosis : </h2>
+        <h2 id="welcome-heading">Enter the Parameters :</h2>
+  <form action="/result" method="POST">
+
+
+    <div style="text-align: center;">
+        <label for="Age" style="font-weight: bold; color: #000000;">Ageㅤ   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ:</label>
+        <input type="text" id="Age" name="Age" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div> 
+
+    <div style="text-align: center;">
+      <label for="Gender" style="font-weight: bold; color: #000000;">Genderㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ:</label>
+      <input type="text" id="Gender" name="Gender" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    <div style="text-align: center;">
+      <label for="Total_Bilirubin" style="font-weight: bold; color: #000000;">Total_Bilirubinㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ:</label>
+      <input type="text" id="Total_BilirubinAge" name="Total_Bilirubin" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    <div style="text-align: center;">
+      <label for="Direct_Bilirubin" style="font-weight: bold; color: #000000;">Direct_Biliruㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ:</label>
+      <input type="text" id="Direct_Bilirubin" name="Direct_Bilirubin" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    <div style="text-align: center;">
+      <label for="Alkaline_Phosphotase" style="font-weight: bold; color: #000000;">Alkaline_Phosphotaseㅤㅤㅤㅤㅤㅤ :</label>
+      <input type="text" id="Alkaline_Phosphotase" name="Alkaline_Phosphotase" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    
+    <div style="text-align: center;">
+      <label for="Alamine_Aminotransferase" style="font-weight: bold; color: #000000;">Alamine_Aminotransferaseㅤㅤㅤㅤ:</label>
+      <input type="text" id="Alamine_Aminotransferase" name="Alamine_Aminotransferase" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    <div style="text-align: center;">
+      <label for="Aspartate_Aminotransferase" style="font-weight: bold; color: #000000;">Aspartate_Aminotransferaseㅤㅤㅤ :</label>
+      <input type="text" id="Aspartate_Aminotransferase" name="Aspartate_Aminotransferase" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    <div style="text-align: center;">
+      <label for="Total_Protiens" style="font-weight: bold; color: #000000;">Total_Protiensㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ:</label>
+      <input type="text" id="Total_Protiens" name="Total_Protiens" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div> 
+
+    <div style="text-align: center;">
+      <label for="Albumin" style="font-weight: bold; color: #000000;">Albuminㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ:</label>
+      <input type="text" id="Albumin" name="Albumin" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+
+    <div style="text-align: center;">
+      <label for="Albumin_and_Globulin_Ratio" style="font-weight: bold; color: #000000;">Albumin_and_Globulin_Ratioㅤㅤㅤ :</label>
+      <input type="text" id="Albumin_and_Globulin_Ratio" name="Albumin_and_Globulin_Ratio" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+  </div> 
+  <br><br>
+
+    <div style="text-align: center;">
+      <input type="submit" value="Submit" style="padding: 10px 20px; background-color: #2d0687; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+    </div></form>
+
+
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<footer id="main-footer">
+      Copyright &copy; Kishore 2024
+    </footer>
+</body>
+</html>

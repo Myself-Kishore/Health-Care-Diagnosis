@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+	<title>Diabetes_pred</title>
+    
+</head>
+	<style>
+    #welcome-heading {
+            text-align: center;
+            font-size: 27px;
+            color: #333333;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+    #main-footer
+    {
+      color: #FFFFFF;
+      font-family: "Segoe UI";
+      background: #000000;
+      text-align: center;
+      margin-top: 200px;
+      padding: 16px;
+      bottom: 8px;
+    }</style>
+<body>
+    <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="/">Health Care App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/about">About</a>
+          <a class="nav-item nav-link" href="/cancer">Cancer</a>
+          <a class="nav-item nav-link" href="/diabetes">Diabetes</a>
+          <a class="nav-item nav-link" href="/heart">Heart</a>
+          <a class="nav-item nav-link" href="/liver">Liver</a>
+          <a class="nav-item nav-link" href="/kidney">Kidney</a>
+           <a class="nav-item nav-link" href="/Malaria">Malaria</a>
+           <a class="nav-item nav-link" href="/Pneumonia">Pneumonia</a>
+        </div>
+        <!-- Navbar Right Side
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+        </div>-->
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container",class="form-group">
+        <h2>Diabetes Diagnosis: </h2>
+    
+        <h2 id="welcome-heading">Enter the Parameters :</h2>
+  <form action="/result" method="POST">
+    
+    <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="Pregnancies" style="font-weight: bold; color: #000000;">Pregnancies ㅤ⠀ㅤ:</label>
+      <input type="text" id="Pregnancies" name="Pregnancies" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="Glucose" style="font-weight: bold; color: #000000;">Glucose ㅤㅤㅤ: </label>
+      <input type="text" id="Glucose" name="Glucose" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="BloodPressure" style="font-weight: bold; color: #000000;">BloodPressureㅤ : </label>
+      <input type="text" id="BloodPressure" name="BloodPressure" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="SkinThickness" style="font-weight: bold; color: #000000;">SkinThickness ㅤ⠀:</label>
+      <input type="text" id="SkinThickness" name="SkinThickness" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="Insulin" style="font-weight: bold; color: #000000;">Insulin ㅤㅤ⠀ㅤ:</label>
+      <input type="text" id="Insulin" name="Insulin" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="BMI" style="font-weight: bold; color: #000000;">BMIㅤ⠀⠀⠀⠀⠀⠀ ㅤ:</label>
+      <input type="text" id="BMI" name="BMI" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="DiabetesPedigreeFunction" style="font-weight: bold; color: #000000;">Diabetes Function:</label>
+      <input type="text" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+  <div style="display: inline-block; margin-left: 20px; margin-bottom: 15px;">
+      <label for="Age" style="font-weight: bold; color: #000000;">Ageㅤ⠀⠀⠀⠀⠀ㅤ:</label>
+      <input type="text" id="Age" name="Age" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px;">
+  </div>
+  
+    <br><br>
+
+    <div style="text-align: center;">
+      <input type="submit" value="Submit" style="padding: 10px 20px; background-color: #2d0687; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+    </div><br><br>
+</form>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <footer id="main-footer">
+      Copyright &copy; Kishore 2024
+    </footer>
+</body>
+</html>

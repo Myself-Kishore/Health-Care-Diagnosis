@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+	<title>heart_pred</title>
+    
+</head>
+	<style>
+    #welcome-heading {
+            text-align: center;
+            font-size: 27px;
+            color: #333333;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    #main-footer
+    {
+      color: #FFFFFF;
+      font-family: "Segoe UI";
+      background: #000000;
+      text-align: center;
+      margin-top: 125px;
+      padding: 16px;
+      bottom: 8px;
+    }</style>
+<body>
+    <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="/">Health Care Diagnosis</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/about">About</a>
+          <a class="nav-item nav-link" href="/cancer">Cancer</a>
+          <a class="nav-item nav-link" href="/diabetes">Diabetes</a>
+          <a class="nav-item nav-link" href="/heart">Heart</a>
+          <a class="nav-item nav-link" href="/liver">Liver</a>
+          <a class="nav-item nav-link" href="/kidney">Kidney</a>
+           <a class="nav-item nav-link" href="/Malaria">Malaria</a>
+           <a class="nav-item nav-link" href="/Pneumonia">Pneumonia</a>
+
+
+        </div>
+        <!-- Navbar Right Side
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+        </div>-->
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container",class="form-group">
+        <h2>Heart Disease Diagnosis : </h2>
+        <h2 id="welcome-heading">Enter the Parameters :</h2>
+  <form action="/result" method="POST">
+
+    <div style="display: inline-block; margin-left: 350px;">
+      <div style="width: 200px; margin-bottom: 10px;">
+        <label for="age" style="font-weight: bold; color: #000000;">Age:</label>
+        <input type="text" id="age" name="age" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div> 
+      
+      <div style="width: 200px; margin-bottom: 10px;">
+        <label for="chest pain type" style="font-weight: bold; color: #000000;">Chest pain type:</label>
+        <input type="text" id="chest pain type" name="chest pain type" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 10px;">
+        <label for="serum_cholesterol" style="font-weight: bold; color: #000000;">Cholestoral in mg/dl:</label>
+        <input type="text" id="serum_cholesterol" name="serum_cholesterol" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 10px;">
+        <label for="restecg" style="font-weight: bold; color: #000000;">Restecg:</label>
+        <input type="text" id="restecg" name="restecg" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 10px;">
+        <label for="thalach" style="font-weight: bold; color: #000000;">Thalach:</label>
+        <input type="text" id="thalach" name="thalach" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 10px;">
+        <label for="exang" style="font-weight: bold; color: #000000;">Exang:</label>
+        <input type="text" id="exang" name="exang" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+  </div>
+  
+
+  
+  <div style="display: inline-block; margin-left:30px;">
+      <div style="width: 200px; margin-bottom: 10px;">
+          <label for="sex" style="font-weight: bold; color: #000000;">Sex(1:Male,0:Female):</label>
+          <input type="text" id="sex" name="sex" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div> 
+
+      <div style="width: 200px; margin-bottom: 10px;">
+        <label for="trestbps" style="font-weight: bold; color: #000000;">Trestbps:</label>
+        <input type="text" id="trestbps" name="trestbps" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>  
+      
+      <div style="width: 200px; margin-bottom: 10px;">
+        <label for="oldpeak" style="font-weight: bold; color: #000000;">Oldpeak:</label>
+        <input type="text" id="oldpeak" name="oldpeak" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 10px;">
+        <label for="slope" style="font-weight: bold; color: #000000;">Slope:</label>
+        <input type="text" id="slope" name="slope" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 10px;">
+        <label for="thal" style="font-weight: bold; color: #000000;">Thal:</label>
+        <input type="text" id="thal" name="thal" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+  </div>
+   <br>
+   <br>
+
+    <div style="text-align: center;">
+      <input type="submit" value="Submit" style="padding: 10px 20px; background-color: #2d0687; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+    </div>
+</form>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<footer id="main-footer">
+      Copyright &copy; Kishore 2024
+    </footer>
+</body>
+</html>

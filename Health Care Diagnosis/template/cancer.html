@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+	<title>Cancer_pred</title>
+</head>
+	<style>
+#welcome-heading {
+            text-align: center;
+            font-size: 27px;
+            color: #333333;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+  
+	#main-footer
+    {
+      color: #FFFFFF;
+      font-family: "Segoe UI";
+      background: #000000;
+      text-align: center;
+      margin-top: 75px;
+      padding: 16px;
+      bottom: 8px;
+		}</style>
+<body>
+    <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="/">Health Care Diagnosis</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/about">About</a>
+          <a class="nav-item nav-link" href="/cancer">Cancer</a>
+          <a class="nav-item nav-link" href="/diabetes">Diabetes</a>
+          <a class="nav-item nav-link" href="/heart">Heart</a>
+          <a class="nav-item nav-link" href="/liver">Liver</a>
+          <a class="nav-item nav-link" href="/kidney">Kidney</a>
+           <a class="nav-item nav-link" href="/Malaria">Malaria</a>
+           <a class="nav-item nav-link" href="/Pneumonia">Pneumonia</a>
+        </div>
+        <!-- Navbar Right Side 
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+        </div>-->
+      </div>
+    </div>
+  </nav>
+</header>
+    <div class="container">
+        <h1>Cancer Details : </h1>
+    <h2 id="welcome-heading">Enter the Parameters :</h2>
+    <form action="/result" method="POST">
+
+      <div style="display: inline-block; margin-left: 90px;">
+        
+        <div style="width: 200px; margin-bottom: 5px;">
+            <label for="Texture_mean" style="font-weight: bold; color: #000000;">Texture_mean:</label>
+            <input type="text" id="Texture_mean" name="Texture_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+        </div>
+        <div style="width: 200px; margin-bottom: 5px;">
+          <label for="symmetry_mean" style="font-weight: bold; color: #000000;">Symmetry_mean:</label>
+          <input type="text" id="symmetry_mean" name="symmetry_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="perimeter_se" style="font-weight: bold; color: #000000;">Perimeter_se:</label>
+        <input type="text" id="perimeter_se" name="perimeter_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="area_se" style="font-weight: bold; color: #000000;">Area_se:</label>
+        <input type="text" id="area_se" name="area_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="smoothness_se" style="font-weight: bold; color: #000000;">Smoothness_se:</label>
+        <input type="text" id="smoothness_se" name="smoothness_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="compactness_worst" style="font-weight: bold; color: #000000;">Compactness_worst:</label>
+        <input type="text" id="compactness_worst" name="compactness_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="symmetry_worst" style="font-weight: bold; color: #000000;">Symmetry_worst:</label>
+        <input type="text" id="symmetry_worst" name="symmetry_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+    </div>
+    
+  
+    
+    <div style="display: inline-block; margin-left: 40px;">
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="Radius_mean" style="font-weight: bold; color: #000000;">Radius_mean:</label>
+        <input type="text" id="Radius_mean" name="Radius_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+      
+        <div style="width: 200px; margin-bottom: 5px;">
+          <label for="Area_mean" style="font-weight: bold; color: #000000;">Area_mean:</label>
+          <input type="text" id="Area_mean" name="Area_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="Compactness_mean" style="font-weight: bold; color: #000000;">Fractal_dimension_mean:</label>
+        <input type="text" id="fractal_dimension_mean" name="fractal_dimension_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="compactness_se" style="font-weight: bold; color: #000000;">Compactness_se:</label>
+        <input type="text" id="compactness_se" name="compactness_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="concavity_se" style="font-weight: bold; color: #000000;">Concavity_se:</label>
+        <input type="text" id="concavity_se" name="concavity_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="concave points_se" style="font-weight: bold; color: #000000;">Concave points_se:</label>
+        <input type="text" id="concave points_se" name="concave points_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+         
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="symmetry_se" style="font-weight: bold; color: #000000;">Symmetry_se:</label>
+        <input type="text" id="symmetry_se" name="symmetry_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="fractal_dimension_worst" style="font-weight: bold; color: #000000;">Fractal_dimension_worst:</label>
+        <input type="text" id="fractal_dimension_worst" name="fractal_dimension_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      
+    </div>
+
+
+
+    <div style="display: inline-block; margin-left: 60px;">
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="Perimeter_mean" style="font-weight: bold; color: #000000;">Perimeter_mean:</label>
+        <input type="text" id="Perimeter_mean" name="Perimeter_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+          <label for="Smoothness_mean" style="font-weight: bold; color: #000000;">Smoothness_mean :</label>
+          <input type="text" id="Smoothness_mean" name="Smoothness_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      <div style="width: 200px; margin-bottom: 5px;">
+          <label for="Compactness_mean" style="font-weight: bold; color: #000000;">Compactness_mean:</label>
+          <input type="text" id="Compactness_mean" name="Compactness_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="radius_se" style="font-weight: bold; color: #000000;">Radius_se:</label>
+        <input type="text" id="radius_se" name="radius_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="fractal_dimension_se" style="font-weight: bold; color: #000000;">Fractal_dimension_se:</label>
+        <input type="text" id="fractal_dimension_se" name="fractal_dimension_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="radius_worst" style="font-weight: bold; color: #000000;">Radius_worst:</label>
+        <input type="text" id="radius_worst" name="radius_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="texture_worst" style="font-weight: bold; color: #000000;">Texture_worst:</label>
+        <input type="text" id="texture_worst" name="texture_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+
+      <div style="width: 200px; margin-bottom: 5px;">
+        <label for="concavity_worst" style="font-weight: bold; color: #000000;">Concavity_worst:</label>
+        <input type="text" id="concavity_worst" name="concavity_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+      </div>
+      
+  </div>
+
+
+
+  <div style="display: inline-block; margin-left: 80px;">
+    <div style="width: 200px; margin-bottom: 5px;">
+        <label for="Concavity_mean" style="font-weight: bold; color: #000000;">Concavity_mean :</label>
+        <input type="text" id="Concavity_mean" name="Concavity_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    <div style="width: 200px; margin-bottom: 5px;">
+        <label for="concave points_mean" style="font-weight: bold; color: #000000;">Concave points_mean:</label>
+        <input type="text" id="concave points_mean" name="concave points_mean" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+
+    <div style="width: 200px; margin-bottom: 5px;">
+      <label for="texture_se" style="font-weight: bold; color: #000000;">Texture_se:</label>
+      <input type="text" id="texture_se" name="texture_se" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+
+    <div style="width: 200px; margin-bottom: 5px;">
+      <label for="perimeter_worst" style="font-weight: bold; color: #000000;">Perimeter_worst:</label>
+      <input type="text" id="perimeter_worst" name="perimeter_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 5px;">
+      <label for="area_worst" style="font-weight: bold; color: #000000;">Area_worst:</label>
+      <input type="text" id="area_worst" name="area_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+    
+    <div style="width: 200px; margin-bottom: 5px;">
+      <label for="smoothness_worst" style="font-weight: bold; color: #000000;">Smoothness_worst:</label>
+      <input type="text" id="smoothness_worst" name="smoothness_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+
+    <div style="width: 200px; margin-bottom: 5px;">
+      <label for="concave_points_worst" style="font-weight: bold; color: #000000;">Concave points_worst:</label>
+      <input type="text" id="concave_points_worst" name="concave_points_worst" style="padding: 6px; border: 1px solid #2c2727; border-radius: 4px; width: 170px;">
+    </div>
+</div>
+<br><br>
+
+<div style="text-align: center;">
+  <input type="submit" value="Submit" style="padding: 10px 20px; background-color: #180580; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+</div>
+
+</form>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<footer id="main-footer">
+      Copyright &copy; Kishore 2024
+    </footer>
+</body>
+</html>
